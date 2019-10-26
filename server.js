@@ -43,7 +43,7 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/apiRoutes")(app);
+//require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 // A GET route for scraping the echoJS website
@@ -69,7 +69,7 @@ app.get("/scrape", function(req, res) {
         // Save these results in an object that we'll push into the results array we defined earlier
         var results = {
             title: title,
-            link: link
+            link: "https://www.nytimes.com" + link
         }
   
 

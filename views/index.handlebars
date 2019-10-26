@@ -1,0 +1,27 @@
+<div class="navbar"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-2"><button type="button" class="btn btn-success" id="scrape-button">Scrape New Articles</button></div>
+        <div class="col-2"><button type="button" class="btn btn-danger" id="clear-button">Clear All </button></div>
+        <div class="col-4"></div>
+    </div>
+    {{#each data}}
+    <div class="row">
+        <div class="col-10">
+            <div class="row">
+                <h3>{{this.title}}</h3>
+            </div>
+            <div class="row">
+                <a href="{{this.link}}">Click Here To View The Full Article</a>
+            </div>
+        </div>  
+        <div class="col-2">
+            <button type="button" class="btn btn-primary" id="archive-button" data-id={{this._id}}>Archive Article</button>
+        </div>
+    </div>
+    <br>
+    {{/each}}
+</div>
+
+<script type="text/javascript" src="/js/index.js"></script>
