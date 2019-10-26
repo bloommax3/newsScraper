@@ -1,0 +1,26 @@
+{{#each data}}
+    {{#if saved}}
+    <div class="row">
+        <div class="col-8">
+            <div class="row">
+                <h3>{{this.title}}</h3>
+            </div>
+            <div class="row">
+                <a href="{{this.link}}">Click Here To View The Full Article</a>
+            </div>
+        </div>  
+        <div class="col-2">
+            <button type="button" class="btn btn-danger" id="delete-button" data-id={{this._id}}>Delete Article</button>
+        </div>
+        <div class="col-2">
+            <button type="button" class="btn btn-danger" id="note-button" data-id={{this._id}}>Add Note</button>
+        </div>
+    </div>
+    <br>
+    {{/if}}
+    {{else}}
+    <div class="row">
+        <p>No Data Available. Scrape Some Articles to Get Started</p>
+    </div>
+    
+{{/each}}
