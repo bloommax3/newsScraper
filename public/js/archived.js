@@ -6,4 +6,8 @@ $(document).ready(function(){
         });
         
     })
+
+    $("#note-button").on("click", function(){
+        
+    })
 })
