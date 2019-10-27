@@ -16,5 +16,10 @@ module.exports = function(app){
         })
     })
 
-    
+    app.delete("/api/clearID/:id", function(req, res){
+        db.Article.remove({_id: req.params.id}, function(err, data){
+            if(err) throw err;
+            res.json(data)
+        })
+    })
 }
