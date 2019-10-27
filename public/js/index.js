@@ -16,7 +16,11 @@ $(document).ready(function(){
     })
 
     $("#archive-button").on("click", function(){
-        $.ajax({url: "/api/save", method: 'PUT', data: this.attr("data-id")}).then(function(response) {});
+        let id = $(this).attr("data-id");
+        console.log(id)
+        $.ajax({url: "/api/save", method: 'PUT', data: {id: id}}).then(function(response) {
+            
+        });
         
     })
 })
