@@ -19,7 +19,7 @@ $(document).ready(function(){
         let id = $(this).attr("data-id");
         console.log(id)
         $.ajax({url: "/api/save", method: 'PUT', data: {id: id}}).then(function(response) {
-            
+            document.location.reload()
         });
         
     })
