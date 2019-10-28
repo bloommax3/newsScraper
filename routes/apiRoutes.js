@@ -25,21 +25,22 @@ module.exports = function(app){
 
     // Route for saving a new Note to the db and associating it with a Article
     app.post("/api/submit", function(req, res) {
+        console.log(req.body)
         // Create a new Note in the db
-        db.Note.create(req.body)
+        db.Note.create(req.body.body)
         .then(function(dbNote) {
             // If a Note was created successfully, find one User (there's only one) and push the new Note's _id to the Article's `notes` array
             // { new: true } tells the query that we want it to return the updated User -- it returns the original by default
             // Since our mongoose query returns a promise, we can chain another `.then` which receives the result of the query
-            return db.Article.findOneAndUpdate({}, { $push: { notes: dbNote._id } }, { new: true });
+            return db.Article.findOneAndUpdate({_id: req.body.articleID}, { $push: { notes: dbNote._id } }, { new: true });
         })
         .then(function(dbArticle) {
             // If the User was updated successfully, send it back to the client
-            res.json(dbArticle);
+            console.log(dbArticle);
         })
         .catch(function(err) {
             // If an error occurs, send it back to the client
-            res.json(err);
+            console.log(err);
         });
     });
 
